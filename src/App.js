@@ -1,7 +1,8 @@
 import React from "react";
-import Todo from "./componets/Todo";
-import DateTime from "./componets/DateTime";
-import JokeCard from "./componets/JokeCard";
+// import Todo from "./componets/Todo";
+// import DateTime from "./componets/DateTime";
+// import JokeCard from "./componets/JokeCard";
+import Joke from "./componets/Joke";
 // function App() {
 //   return (
 //     <div>
@@ -16,13 +17,15 @@ import JokeCard from "./componets/JokeCard";
 // }
 
 function App() {
+  // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  // const double = nums.map(function (num) {
+  //   return num * 2;
+  // })
+  // console.log(double);
+
   return (
-    <div className="jokes">
-      <JokeCard joke={{ question: "Guess what", punchline: "Chicken Butt" }} />
-      <JokeCard joke={{ question: "Who's house?", punchline: "Run's House" }} />
-      <JokeCard joke={{ punchline: "Mike Tyson" }} />
-      <JokeCard joke={{ question: "Dance Yrself", punchline: "Clean" }} />
-      <JokeCard joke={{ punchline: "My Life" }} />
+    <div>
+      <Joke />
     </div>
   );
 }

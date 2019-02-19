@@ -11,7 +11,9 @@ function JokeCard(props) {
     return (
       <div>
         <h1>Question: {props.joke.question}</h1>
-        <h2>Punchline: {props.joke.punchline}</h2>
+        <h2 style={{ display: !props.punchline && "none" }}>
+          Punchline: {props.joke.punchline}
+        </h2>
       </div>
     );
   }
