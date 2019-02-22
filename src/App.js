@@ -3,135 +3,116 @@ import TodoItem from "./TodoItem"
 import TodosData from "./TodosData"
 
 
-
-// Given a stateless functional component, add state to it
-// state should have a property called `isLoggedIn` which is a boolean
-// (true if logged in, false if not)
-// Then, give your best shot at rendering the word "in" if the user is logged in
-// or "out" if the user is logged out.
-
 class App extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      isLoggenIn: false
+      todos: TodosData
     }
+    this.handleChange = this.handleChange.bind(this)
   }
+
+  handleChange(id) {
+
+    this.setState(prevState => {
+      const updateTodos = prevState.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+      return {
+        todos: updateTodos
+      }
+    })
+
+  }
+
+
+
   render() {
+    const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange} />)
+
     return (
-      <div>
-        <h1>You are currently logged {this.state.isLoggenIn ? 'IN' : 'OUT'}</h1>
+      <div className="todo-list">
+        {todoItems}
       </div>
     )
   }
 }
+export default App;
 
-
-
-// class App extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       name: "Steve",
-//       age: "55",
-//       butt: "Large"
-//     }
-
-//     this.handleClick = this.handleClick.bind(this);
-//   }
-
-//   handleClick() {
-//     const ass = this.state.butt
-//     console.log({ ass })
-
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <h1>{this.state.name}</h1>
-//         <h3>{this.state.age} years old</h3>
-//         <button onClick={this.handleClick}>Push</button>
-//         <h1>{this.state.butt}</h1>
-//       </div>
-//     )
-//   }
-// }
 
 
 // class App extends React.Component {
 //   constructor() {
 //     super()
 //     this.state = {
-//       answer: "Yes"
+//       todos: TodosData
 //     }
 //   }
+
 //   render() {
+//     const todoItems = this.state.todos.map(item =>
+//       <TodoItem key={item.id} item={item} />)
 //     return (
-//       <div>
-//         <h1>Is state important to know? {this.state.answer}</h1>
+//       <div className="todo-list">
+//         {todoItems}
 //       </div>
 //     )
 //   }
 // }
 
-// class App extends React.Component {
-//   render() {
-//     const todoItems = TodosData.map(item => (
-//       <TodoItem key={item.id} todo={item} />
-//     ))
-//     return (
-//       <div>{todoItems}</div>
-//     )
-//   }
-// }
 
+
+// export default App;
+
+// import React from "react"
 
 // class App extends React.Component {
-//   yourMethod() {
+//     constructor() {
+//         super()
+//         this.state = {
+//             count: 0
 
-//   }
-//   render() {
-//     this.yourMethod()
+//         }
+//         this.handleClick = this.handleClick.bind(this);
+//     }
+//     handleClick(){
+//         this.setState(prevState=>{
+//             return {
+//                 count: prevState.count  + 1
+//             }
+//         })
+//     }
 
-//     return (
-//       <div>Yo</div>
-//     )
-//   }
+//     render() {
+//         return (
+//             <div>
+//                 <h1>{this.state.count}</h1>
+//                 <button onClick={this.handleClick}>Change!</button>
+//             </div>
+//         )
+//     }
 // }
 
+// export default App
+
+
+
+// function myFunction(){
+//   console.log("I be clicked")
+// }
+// function myFunction2(){
+//   console.log("tickle tickle")
+// }
 // function App() {
-//   const todoItems = TodosData.map(item => (
-//     <TodoItem key={item.id} todo={item} />
-//   ))
-//   return (<div className="todo-list">
-//     {todoItems}
-//   </div>
+//   return (
+//       <div>
+//           <img src="https://www.fillmurray.com/200/100" onMouseEnter={myFunction2}/>
+//           <br />
+//           <br />
+//           <button onClick={myFunction}>Click me</button>
+//       </div>
 //   )
 // }
-
-
-
-export default App
-
-
-
-
-
-
-// import React from "react";
-// import JokesData from "./componets/JokesData";
-// import Joke from "./componets/Joke";
-
-
-// function App() {
-//   const jokeComponents =
-//     JokesData.map(joke => <Joke key={joke.id}
-//       question={joke.question} punchline={joke.punchline} />)
-
-//   return (
-//     <div>
-//       {jokeComponents}
-//     </div>
-//   );
-// }
-// export default App;
