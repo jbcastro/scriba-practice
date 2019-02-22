@@ -1,32 +1,66 @@
-import React from "react";
-// import Todo from "./componets/Todo";
-// import DateTime from "./componets/DateTime";
-// import JokeCard from "./componets/JokeCard";
-import Joke from "./componets/Joke";
+import React from "react"
+import TodoItem from "./TodoItem"
+import TodosData from "./TodosData"
+
+
+class App extends React.Component {
+  render() {
+    const todoItems = TodosData.map(item => (
+      <TodoItem key={item.id} todo={item} />
+    ))
+    return (
+      <div>{todoItems}</div>
+    )
+  }
+}
+
+
+// class App extends React.Component {
+//   yourMethod() {
+
+//   }
+//   render() {
+//     this.yourMethod()
+
+//     return (
+//       <div>Yo</div>
+//     )
+//   }
+// }
+
 // function App() {
+//   const todoItems = TodosData.map(item => (
+//     <TodoItem key={item.id} todo={item} />
+//   ))
+//   return (<div className="todo-list">
+//     {todoItems}
+//   </div>
+//   )
+// }
+
+
+
+export default App
+
+
+
+
+
+
+// import React from "react";
+// import JokesData from "./componets/JokesData";
+// import Joke from "./componets/Joke";
+
+
+// function App() {
+//   const jokeComponents =
+//     JokesData.map(joke => <Joke key={joke.id}
+//       question={joke.question} punchline={joke.punchline} />)
+
 //   return (
 //     <div>
-//       <DateTime />
-//       <Todo />
-//       <Todo />
-//       <Todo />
-//       <Todo />
-//       <Todo />s
+//       {jokeComponents}
 //     </div>
 //   );
 // }
-
-function App() {
-  // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  // const double = nums.map(function (num) {
-  //   return num * 2;
-  // })
-  // console.log(double);
-
-  return (
-    <div>
-      <Joke />
-    </div>
-  );
-}
-export default App;
+// export default App;

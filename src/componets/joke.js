@@ -1,14 +1,12 @@
 import React from "react";
 import JokeCard from "./JokeCard";
+import JokesData from "./JokesData"
 
-function Joke() {
+function Joke(props) {
   return (
-    <div className="jokes">
-      <JokeCard joke={{ question: "Guess what", punchline: "Chicken Butt" }} />
-      <JokeCard joke={{ question: "Who's house?", punchline: "Run's House" }} />
-      <JokeCard joke={{ punchline: "Mike Tyson" }} />
-      <JokeCard joke={{ question: "Dance Yrself" }} />
-      <JokeCard joke={{ punchline: "My Life" }} />
+    <div>
+      <h3 style={{ display: !props.question && "none" }}>Question: {props.question}</h3>
+      <h3 style={{ color: !props.question && "#888888" }}>Answer: {props.punchline}</h3>
     </div>
   );
 }
