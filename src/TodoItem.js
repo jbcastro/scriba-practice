@@ -1,19 +1,36 @@
 import React from "react"
-import TodosData from "./TodosData"
+// import TodosData from "./TodosData"
 
 
 function TodoItem(props) {
-    return (
-        <div className="todo-item">
-            <input
-                type="checkbox"
-                checked={props.item.completed}
-                onChange={() => props.handleChange(props.item.id)}
-            />
-            <p>{props.item.text}</p>
+    if (props.item.cool === true) {
+        return (
+            <div className="todo-item">
+                <input
+                    type="checkbox"
+                    checked={props.item.completed}
+                    onChange={() => props.handleChange(props.item.id)}
+                />
+                <p>{props.item.text}</p>
+                <img src={props.item.photo} />
 
-        </div>
-    )
+            </div>
+        )
+    }
+    else {
+        return (
+            <div className="todo-item">
+                <input
+                    type="checkbox"
+                    checked={props.item.completed}
+                    onChange={() => props.handleChange(props.item.id)}
+                />
+                <p>{props.item.text}</p>
+
+
+            </div>
+        )
+    }
 }
 
 

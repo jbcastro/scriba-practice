@@ -1,21 +1,28 @@
+import bulba from './img/bulba.png'
+import char from './img/char.png'
+import squirtle from './img/squirtle.png'
+
 const TodosData = [
     {
         id: 1,
         text: "Take out the trash",
         completed: true,
-        cool: true
+        cool: false,
+        photo: bulba
     },
     {
         id: 2,
         text: "Grocery shopping",
         completed: false,
-        cool: true
+        cool: true,
+        photo: char
     },
     {
         id: 3,
         text: "Clean gecko tank",
         completed: false,
-        cool: true
+        cool: true,
+        photo: squirtle
     },
     {
         id: 4,
